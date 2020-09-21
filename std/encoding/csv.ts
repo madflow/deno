@@ -9,7 +9,7 @@ import { TextProtoReader } from "../textproto/mod.ts";
 import { StringReader } from "../io/readers.ts";
 import { assert } from "../_util/assert.ts";
 
-const INVALID_RUNE = ["\r", "\n", '"'];
+export const INVALID_RUNE = ["\r", "\n", '"'];
 
 export const ERR_BARE_QUOTE = 'bare " in non-quoted-field';
 export const ERR_QUOTE = 'extraneous or missing " in quoted-field';
