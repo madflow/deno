@@ -5,7 +5,7 @@ import { InvalidDelimiterError, write, WriteOptions } from "./csv_writer.ts";
 
 interface CsvWriterTestCase {
   name: string;
-  input: string[][];
+  input: string[][] | object[];
   result?: string;
   options?: WriteOptions;
   error?: Error;
@@ -184,6 +184,11 @@ const testCases: CsvWriterTestCase[] = [
     input: [[""]],
     options: {comma: '\r'},
     error: new InvalidDelimiterError('\r'),
+  },
+  {
+    name: "An array of objects as input",
+    input: [{a: 'a', b: 'b'}, {c: 'c', d: 'd'}],
+    result: `a,b${EOL.LF}c,d${EOL.LF}`,
   },
 ];
 
